@@ -135,7 +135,7 @@ def get_CRW_SST_anomaly(day, ll_lat=-21., ur_lat=-12., ll_lon=165., ur_lon=172.,
 
 today = datetime.utcnow()
 
-delay = 2
+delay = 1
 
 # ### last day available
 

@@ -128,7 +128,7 @@ get the date of today (must be run before 12)
 
 today = datetime.utcnow()
 
-delay = 2
+delay = 1
 
 # ### last day available
 
