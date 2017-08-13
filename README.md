@@ -1,0 +1,2 @@
+# SST monitoring for Vanuatu
+
