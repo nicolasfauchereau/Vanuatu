@@ -1,3 +1,2 @@
-# SST near realtime monitoring for Vanuatu
-------------------------------------------
+# Sea Surface Temperature (SST) near realtime monitoring for Vanuatu
 
