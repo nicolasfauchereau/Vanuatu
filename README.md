@@ -1,2 +1,2 @@
-# SST monitoring for Vanuatu, by NIWA
+# SST near realtime monitoring for Vanuatu, by NIWA
 
