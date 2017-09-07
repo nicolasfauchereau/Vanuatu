@@ -20,7 +20,7 @@ from cartopy.mpl.gridliner import LONGITUDE_FORMATTER, LATITUDE_FORMATTER
 sys.path.append('/Users/nicolasf/pythonlibs/resource_converter/')
 from regrid import regrid
 
-lag = 2
+lag = 1
 
 today = datetime.utcnow() - timedelta(days=lag)
 
@@ -31,6 +31,7 @@ last_90_days = pd.date_range(start=today - timedelta(days=90), end=today, freq='
 last_30_days = pd.date_range(start=today - timedelta(days=30), end=today, freq='1D')
 
 root_dpath = '/Users/nicolasf/data'
+figures_path = '/Users/nicolasf/operational/Vanuatu/TRMM/figures'
 
 dpath = os.path.join(root_dpath, 'TRMM/daily')
 
@@ -116,9 +117,8 @@ lons, lats = np.meshgrid(new_lon, new_lat)
 
 sys.path.append(os.path.join(os.environ['HOME'], 'pythonlibs'))
 
-import nclcmaps
-
 import nclcmaps as ncm
+
 cmap = ncm.cmap('GMT_drywet')
 
 proj = ccrs.PlateCarree()
@@ -146,7 +146,7 @@ gl.yformatter = LATITUDE_FORMATTER
 
 ax.set_title('30 days cumulative rainfall (mm) to {:%Y-%m-%d}'.format(today_local))
 
-f.savefig('../figures/cumulative_rainfall_last30days.png', dpi=200)
+f.savefig(os.path.join(figures_path, 'cumulative_rainfall_last30days.png'), dpi=200)
 
 cmap = ncm.cmap('GMT_haxby')
 
@@ -192,4 +192,4 @@ for thresh in [0, 1, 5]:
 
     cb.set_label('days')
     ax.set_title('number of days since last rainfall > {} mm\nvalid to {:%Y-%m-%d}'.format(thresh, today_local))
-    f.savefig('../figures/nbdays_thresh_{}mm.png'.format(thresh), dpi=200)
+    f.savefig(os.path.join(figures_path, 'nbdays_thresh_{}mm.png'.format(thresh)), dpi=200)
